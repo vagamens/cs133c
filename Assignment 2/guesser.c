@@ -15,24 +15,28 @@ int main() {
 	int input;
 	int guesses = 3;
 	int guessed = 0;
-
+	int low = 1;
+	int high = 10;
 	int num = genNum(10);
 
-	printf("%d\n",num);
 	while (guessed < guesses) {
-		printf("Enter a number between 1 and 10: ");
+		if(input >= low && input <= high) {
+			guessed = ++guessed;
+		}
+		printf("Enter a number between %d and %d: ", low, high);
 		scanf(" %d",&input);getchar();
 		if (input == num) {
 			printf("You guessed correctly!\n");
 			break;
 		} else if (input > num) {
+			high = input;
 			printf("You weren\'t quite right :(\n");
 			printf("Too large!\n\n");
 		} else if (input < num) {
+			low = input;
 			printf("You weren\'t quite right :(\n");
 			printf("Too small!\n\n");
 		}
-		guessed = ++guessed;
 	}
 
 	if(guessed >= guesses) {
