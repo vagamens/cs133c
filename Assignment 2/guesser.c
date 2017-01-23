@@ -6,14 +6,13 @@ int genNum(int in) {
 	int num;
 	time_t t;
 	srand((unsigned) time(&t));
-	num = rand()%10;
+	num = rand()%in;
 	num = ++num;
 	return num;
 }
 
 int main() {
 	int input;
-
 	int guesses = 3;
 	int guessed = 0;
 
@@ -26,8 +25,12 @@ int main() {
 		if (input == num) {
 			printf("You guessed correctly!\n");
 			break;
-		} else {
-			printf("You weren\'t quite right :(\n\n");
+		} else if (input > num) {
+			printf("You weren\'t quite right :(\n");
+			printf("Too large!\n\n");
+		} else if (input < num) {
+			printf("You weren\'t quite right :(\n");
+			printf("Too small!\n\n");
 		}
 		guessed = ++guessed;
 	}
