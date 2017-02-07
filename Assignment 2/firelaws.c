@@ -1,16 +1,34 @@
 #include <stdio.h>
-#include <stdlib.h>
+
+int clrBuf() {
+	while(getchar() != '\n');
+}
 
 int main() {
 	int attendees;
 	int capacity;
 	int difference;
+	int maxTries = 5;
+	int triesRemaining = maxTries;
 
 	printf("Enter the number of meeting participants: ");
-	scanf(" %d",&attendees);getchar();
+	scanf(" %d",&attendees);clrBuf()
+
+	while(attendees <= 0 && triesRemaining > 0) {
+		printf("Invalid attendee count, please try again.\n");
+		scanf(" %d",&attendees);clrBuf();
+		triesRemaining--;
+	}
+
+	triesRemaining = maxTries;
 
 	printf("Enter the meeting room capacity: ");
-	scanf(" %d",&capacity);getchar();
+	scanf(" %d",&capacity);clrBuf();
+
+	while(capacity <= 0) {
+		printf("Inalid capacity count, please try again.\n");
+		scanf(" %d",&capacity);clrBuf();
+	}
 
 	if(attendees > capacity) {
 		difference = attendees - capacity;
