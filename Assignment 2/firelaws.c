@@ -2,9 +2,9 @@
 #include <stdlib.h>
 
 int main() {
-	int attendees;
-	int capacity;
-	int difference;
+	int attendees = 0;
+	int capacity = 0;
+	int difference = 0;
 
 	printf("Enter the number of meeting participants: ");
 	scanf(" %d",&attendees);getchar();

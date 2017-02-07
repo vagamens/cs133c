@@ -3,7 +3,7 @@
 #include <time.h>
 
 int genNum(int in) {
-	int num;
+	int num = 0;
 	time_t t;
 	srand((unsigned) time(&t));
 	num = rand()%in;
@@ -12,7 +12,7 @@ int genNum(int in) {
 }
 
 int main() {
-	int input;
+	int input = 0;
 	int guesses = 3;
 	int guessed = 0;
 	int low = 1;
@@ -21,7 +21,7 @@ int main() {
 
 	while (guessed < guesses) {
 		if(input >= low && input <= high) {
-			guessed = ++guessed;
+			guessed++;
 		}
 		printf("Enter a number between %d and %d: ", low, high);
 		scanf(" %d",&input);getchar();
