@@ -27,7 +27,7 @@ int strRealLen(char *string) {
 int randNum() {
 	int num = 0;
 	time_t t;
-	srand((unsigned) time(&t));
+	srand((unsigned) time(NULL));
 	num = rand();
 	return num;
 }
@@ -51,4 +51,8 @@ int greater(int a, int b) {
 		return a;
 	}
 	return b;
+}
+
+int randRange(int a, int b) {
+	return randModNum((b-a)+1)+a;
 }
