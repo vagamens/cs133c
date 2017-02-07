@@ -1,4 +1,6 @@
+#include <time.h>
 #include <stdio.h>
+#include <stdlib.h>
 
 void clrBuf() {
 	while(getchar() != '\n');
@@ -20,4 +22,33 @@ int strRealLen(char *string) {
 	}
 	string = newString;
 	return 0;
+}
+
+int randNum() {
+	int num = 0;
+	time_t t;
+	srand((unsigned) time(&t));
+	num = rand();
+	return num;
+}
+
+int randModNum(int in) {
+	int num = randNum();
+	num = num%in;
+	num = ++num;
+	return num;
+}
+
+int lesser(int a, int b) {
+	if(a<b) {
+		return a;
+	}
+	return b;
+}
+
+int greater(int a, int b) {
+	if(a>b) {
+		return a;
+	}
+	return b;
 }
