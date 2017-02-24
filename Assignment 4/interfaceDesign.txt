@@ -1,0 +1,14 @@
+           +-------------+     +-------------------+
+           | /          \|     | AVAILABLE LETTERS |
+           |/            |     | A B C D E F G H I |
+           |             0     | J K L M N O P Q R |
+           |            /|\    | S T U V W X Y Z   |
+           |             |     +-------------------+
+           |            / \    | INCORRECT LETTERS |
+           |                   | A B C D E F G     |
+           |                   +-------------------+
+           |                   |  GUESSED LETTERS  |
+           |                   | S O M E T H I N G |                      
+___________+____________       +-------------------+                      
+
+_ _ _ _ _ _ _ _
