@@ -59,3 +59,10 @@ int greater(int a, int b) {
 int randRange(int a, int b) {
 	return randModNum((b-a)+1)+a;
 }
+
+int printStr(char string[], int len) {
+	for(int i=0;i<len;i++) {
+		printf("%c", string[i]);
+	}
+	printf("\n");
+}
