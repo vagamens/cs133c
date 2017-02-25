@@ -241,27 +241,21 @@ char getP2Input() {
 }
 
 int complete(struct Game *this) {
-	/*
-		THIS FUNCTION SHOULD BE WORKING!!!!!!
-		FOR ODD REASONS, THE FITNESS SECTION
-		CURRENTLY CAUSES A SEGFAULT. WILL
-		DEBUG TOMORROW!!!!!!!!!!!!!!!!!!!!!!!
-	*/
 	//check loss state
 	if(this->guesses[1] == this->guesses[0]) {
 		return 1;
 	}
 	int correctness = 0;
 	//fitness function
-	// for(int i=0;strlen(this->player1);i++) {
-	// 	if(this->player1[i] != this->player2[i]) {
-	// 		correctness++;
-	// 	}
-	// }
-	if(correctness < strlen(this->player1)) {
+	for(int i=0;this->player1[i]!='\0';i++) {
+		if(this->player1[i] == this->player2[i]) {
+			correctness++;
+		}
+	}
+	if(correctness < lenStr(this->player1)) {
 		//continue state
 		return 0;
-	} else if(correctness >= strlen(this->player1)) {
+	} else if(correctness >= lenStr(this->player1)) {
 		//win state
 		return 2;
 	}
