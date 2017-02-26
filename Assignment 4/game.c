@@ -245,20 +245,11 @@ int complete(struct Game *this) {
 	if(this->guesses[1] == this->guesses[0]) {
 		return 1;
 	}
-	int correctness = 0;
-	//fitness function
-	for(int i=0;this->player1[i]!='\0';i++) {
-		if(this->player1[i] == this->player2[i]) {
-			correctness++;
-		}
-	}
-	if(correctness < lenStr(this->player1)) {
-		//continue state
-		return 0;
-	} else if(correctness >= lenStr(this->player1)) {
-		//win state
+	//check win state
+	if(compareStrings(this->player1, this->player2)) {
 		return 2;
 	}
+	//continue state
 	return 0;
 }
 
@@ -278,7 +269,8 @@ int runGame(struct Game *this) {
 	}
 	int comp = complete(this);
 	if(comp == 2) {
-		printf("\n\nPLAYER 2 WINS!\nTHE WORD WAS: %s", this->player1);
+		printInterface(this);
+		printf("\n\nPLAYER 2 WINS!\nTHE WORD WAS: %s\n", this->player1);
 		return 0;
 	} else if(comp == 1) {
 		printInterface(this);
