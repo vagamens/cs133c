@@ -75,3 +75,13 @@ int compareStrings(char *string1, char *string2) {
 	}
 	return 1;
 }
+
+int print(char formatString[], char longStr[]) {
+	for(int i=0;formatString[i]!='\0';i++) {
+		if(formatString[i] == '%' && formatString[i+1] == 's') {
+			for(int j=0;j<lenStr(longStr);j++) {
+				printf("%c", longStr[i]);
+			}
+		}
+	}
+}
